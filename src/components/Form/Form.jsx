@@ -1,14 +1,22 @@
-import { Button, FormControl, FormLabel, Input, Stack } from "@chakra-ui/react";
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Stack,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { useRef } from "react";
 import ButtonForm from "./ButtonForm";
 import Category from "./Category";
 import Feedback from "./Feedback";
 import HeaderForm from "./HeaderForm";
 import ImageUpload from "./ImageUpload";
+import ModalForm from "./ModalForm";
 import Rating from "./Rating";
 
 const Form = () => {
-  
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Stack
       ml={{ base: "1.2rem", md: "2.5rem" }}
@@ -31,7 +39,13 @@ const Form = () => {
         <ImageUpload />
         <Rating />
         <Feedback />
-        <ButtonForm type="submit" mt="1.2rem" text="Submit" />
+        <ButtonForm
+          type="submit"
+          mt="1.2rem"
+          text="Submit"
+          handleClick={onOpen}
+        />
+        <ModalForm isOpen={isOpen} onClose={onClose} />
       </FormControl>
     </Stack>
   );
