@@ -3,13 +3,7 @@ import React, { useState } from "react";
 
 const categorys = ["Android", "Web", "Microcontroller"];
 
-const Category = () => {
-  const [categoryState, setCategoryState] = useState("");
-
-  const handleChoose = (category) => {
-    setCategoryState(category);
-  };
-
+const Category = ({categoryState, handleChoose}) => {
   return (
     <>
       <FormLabel aria-label="category" pt="1.4rem">

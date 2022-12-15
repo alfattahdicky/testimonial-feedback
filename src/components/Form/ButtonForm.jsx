@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import React from "react";
 
-const ButtonForm = (props) => {
+const ButtonForm = ({ handleClick, text, ...props }) => {
   return (
     <Button
       _hover={{ backgroundColor: "#050505" }}
@@ -9,9 +9,9 @@ const ButtonForm = (props) => {
       bgColor="gray.500"
       color="white"
       {...props}
-      onClick={props.handleClick}
+      onClick={handleClick}
     >
-      {props.text}
+      {text}
     </Button>
   );
 };
