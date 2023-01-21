@@ -53,6 +53,7 @@ const Form = () => {
   const [categoryState, setCategoryState] = useState("");
   const [indexStar, setIndexStar] = useState();
   const [image, setImage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const updateSubmitted = useFormStore((state) => state.updateSubmitted);
   const [stateUpload, setStateUpload] = useState(false);
   const [url, error] = useUrlImage(getValues("uploadImage"), getValues("name"));
@@ -141,7 +142,7 @@ const Form = () => {
     setValue("rating", rating);
   };
 
-  //TODO: Submit Form
+  //* Submit Form
   const handleSubmitForm = (data) => {
     const name = getValues('name').split(' ')[0].toLowerCase();
     if (data.rating === "" ) {
@@ -151,6 +152,7 @@ const Form = () => {
         duration: 2000,
         position: "top-right",
       });
+      return;
     } else if(data.image === "") {
       toast({
         title: "Place Your Image",
@@ -158,11 +160,13 @@ const Form = () => {
         duration: 2000,
         position: "top-right",
       });
+      return;
     }
 
     writeData(data, name).then(() => {
       localStorage.setItem('submit', true);
       updateSubmitted();
+      setSubmitted(true);
     }).catch((err) => {
       toast({
         title: "Cannot Submit Data",
@@ -208,6 +212,7 @@ const Form = () => {
           type='submit'
           mt='1.2rem'
           text='Submit'
+          isLoading={submitted ? true : false}
         />
       </FormControl>
       <Alert
