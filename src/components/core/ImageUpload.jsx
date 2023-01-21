@@ -10,8 +10,8 @@ const ImageUpload = ({
   return (
     <>
       <FormLabel aria-label='image' pt='1.4rem'>
-        Your Image
-        <Text fontSize='0.8rem'>Place Image & Click Upload Image</Text>
+        Your Photo
+        <Text fontSize='0.8rem'>Place Photo & Click Upload Photo</Text>
       </FormLabel>
       <Box
         bgColor='transparent'
@@ -46,15 +46,15 @@ const ImageUpload = ({
           h='100%'
         />
         <Text display={image ? "none" : "block"}>
-          Place Image Here Format jpg, png, jpeg
+          Place Photo Here Format jpg, png, jpeg
         </Text>
       </Box>
       <Text as='p' fontSize='0.7rem' mt='0.2rem'>
-        Click Again to Change Your Image & Don't Forget Click Upload Image Again 
+        Click Again to Change Your Photo & Don't Forget Click Upload Photo Again 
       </Text>
       <ButtonForm
         mt='0.8rem'
-        text='Upload Image'
+        text='Upload Photo'
         isLoading={stateUpload}
         handleClick={handleUpload}
       />
