@@ -5,7 +5,8 @@ const Hero = () => {
   return (
     <Image
       src="/feedback.jpg"
-      objectFit="cover"
+      loading="lazy"
+      objectFit="contain"
       objectPosition="center"
       width={{ base: "100%", md: "100%" }}
       minHeight={{ base: "50vh", md: "100vh" }}

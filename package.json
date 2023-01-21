@@ -1,6 +1,6 @@
 {
   "name": "testimonial-feedback",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^2.4.3",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fireworks-js/react": "^2.10.1",
     "@fontsource/poppins": "^4.5.10",
     "firebase": "^9.14.0",
     "framer-motion": "^7.6.19",

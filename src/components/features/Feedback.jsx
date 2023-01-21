@@ -1,7 +1,7 @@
 import { Box, FormLabel, Textarea } from "@chakra-ui/react";
 import React from "react";
 
-const Feedback = (props, ref) => {
+const Feedback = ({...props}, ref) => {
   return (
     <Box pt="1.2rem">
       <FormLabel>Feedback</FormLabel>
@@ -11,7 +11,9 @@ const Feedback = (props, ref) => {
         borderColor="gray.500"
         width={{ base: "100%", md: "70%" }}
         height="12rem"
+        {...props}
         ref={ref}
+        isRequired
       />
     </Box>
   );

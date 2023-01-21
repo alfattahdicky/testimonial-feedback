@@ -1,5 +1,4 @@
-import { Box, Flex, FormLabel, SimpleGrid } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { Box, FormLabel, Text } from "@chakra-ui/react";
 
 const categorys = ["Android", "Web", "Microcontroller"];
 
@@ -8,6 +7,7 @@ const Category = ({categoryState, handleChoose}) => {
     <>
       <FormLabel aria-label="category" pt="1.4rem">
         Category
+        <Text fontSize='0.8rem'>Choose a category that meets your needs</Text>
       </FormLabel>
       <Box display="flex" gap="2">
         {categorys.map((category, index) => (

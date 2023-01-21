@@ -3,12 +3,7 @@ import { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import ReactStars from "react-rating-stars-component";
 
-const Rating = () => {
-  const [indexStar, setIndexStar] = useState();
-  const ratingChange = (rating) => {
-    setIndexStar(rating);
-  };
-
+const Rating = ({indexStar, ratingChange}) => {
   return (
     <Box pt="1.2rem">
       <FormLabel>Rating</FormLabel>
