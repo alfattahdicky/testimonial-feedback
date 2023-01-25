@@ -90,13 +90,47 @@ const Form = () => {
   const handleInputImage = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
-    reader.addEventListener("load", (event) => {
-      setImage(event.target.result);
-    });
-    if (image !== "") {
+    let temp = image;
+    if (image !== temp) {
       onOpenAlert();
     }
+    reader.addEventListener("load", (event) => {
+      const conditionImage = !getValues("uploadImage") && getValues('name') !== "";
+      const name = getValues("name").split(" ")[0];
+      if (conditionImage) {
+      setImage(event.target.result);
+      setStateUpload(true);
+      uploadImage(name, event.target.result)
+        .then((snapshot) => {
+          setValue("uploadImage", true);
+          toast({
+            title: "Upload Image Success",
+            status: "success",
+            duration: 5000,
+            position: "top-right",
+          });
+          setStateUpload(false);
+        })
+        .catch((err) => {
+          toast({
+            title: "Upload Image Failed",
+            status: "error",
+            duration: 1000,
+            position: "top-right",
+          });
+        });
+    } else {
+      toast({
+        title: "Please fill your name",
+        status: "error",
+        duration: 1000,
+        position: "top-right",
+      });
+    }
+    });
+    
     reader.readAsDataURL(file);
+    
   };
 
   //* Handle Upload Image
@@ -145,6 +179,7 @@ const Form = () => {
   //* Submit Form
   const handleSubmitForm = (data) => {
     const name = getValues('name').split(' ')[0].toLowerCase();
+    console.log(data);
     if (data.rating === "" ) {
       toast({
         title: "Give a Rating 1 - 5",
